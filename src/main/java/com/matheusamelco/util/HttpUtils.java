@@ -48,8 +48,9 @@ public abstract class HttpUtils {
 
     /**
      * @param url
+     * @param data
      * @return
-     * @throws IOException
+     * @throws RealtimeDatabaseException
      */
     public static Response put(String url, JSONObject data) throws RealtimeDatabaseException {
         RequestBody body = RequestBody.create(JSON, data.toString());
@@ -64,8 +65,9 @@ public abstract class HttpUtils {
 
     /**
      * @param url
+     * @param data
      * @return
-     * @throws IOException
+     * @throws RealtimeDatabaseException
      */
     public static Response patch(String url, JSONObject data) throws RealtimeDatabaseException {
         RequestBody body = RequestBody.create(JSON, data.toString());

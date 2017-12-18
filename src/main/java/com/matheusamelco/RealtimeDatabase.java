@@ -30,6 +30,9 @@ import org.json.JSONObject;
  * @since 05/12/2017
  */
 public final class RealtimeDatabase {
+
+    // Constants
+
     private static final int GET = 1;
     private static final int PUT = 2;
     private static final int PATCH = 3;
@@ -40,6 +43,11 @@ public final class RealtimeDatabase {
     private int method;
     private JSONObject data;
 
+    /**
+     * Constructor
+     *
+     * @param builder - Requisition builder.
+     */
     public RealtimeDatabase(Builder builder) {
         this.url = builder.baseUrl;
         this.method = builder.method;
@@ -82,15 +90,15 @@ public final class RealtimeDatabase {
     public static class Builder {
 
         private String baseUrl;
-        private String secureToken = null;
-        private boolean isSilent;
+        //private String secureToken;
+       // private boolean isSilent;
         private int method;
         private JSONObject data;
 
         public Builder() {
             this.baseUrl = "";
-            this.secureToken = "";
-            this.isSilent = false;
+            //this.secureToken = "";
+            //this.isSilent = false;
         }
 
         public Builder url(String url) {
@@ -98,7 +106,7 @@ public final class RealtimeDatabase {
             return this;
         }
 
-        public Builder token(String token) {
+       /* public Builder token(String token) {
             this.secureToken = token;
             return this;
         }
@@ -106,7 +114,7 @@ public final class RealtimeDatabase {
         public Builder silent(boolean silent) {
             this.isSilent = silent;
             return this;
-        }
+        }*/
 
         public Builder get() {
             return method(GET, null);
@@ -160,13 +168,13 @@ public final class RealtimeDatabase {
         private String buildFullUri() {
             String url = this.baseUrl + ".json";
 
-            if (secureToken != null) {
+           /* if (secureToken != null) {
                 url += "?auth=" + secureToken;
             }
 
             if (isSilent) {
                 url += "?print=silent";
-            }
+            }*/
 
             return url;
         }
